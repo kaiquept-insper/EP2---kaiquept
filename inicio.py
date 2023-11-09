@@ -1,6 +1,13 @@
 from colorama import init, Fore, Back, Style
 init()
 
+def filtra(palavras,n):
+    filtro = []
+    for palavra in palavras:
+        if len(palavra) == n:
+            if palavra.lower() not in filtro:
+                filtro.append(palavra.lower())
+    return filtro
 
 print(' =========================== ')
 print('|                           |')
@@ -19,4 +26,7 @@ print('  - As palavras podem possuir letras repetidas.')
 print('Sorteando uma palavra...')
 print('Já tenho uma palavra! Tente adivinhá-la!')
 print('Você tem 6 tentaviva(s)')
-print('Qual seu palpite?')
+n_letras = int(input('Com quantas letras quer jogar?'))
+palpite = [input('Qual seu palpite?')]
+
+print(filtra(palpite,n_letras))
