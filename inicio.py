@@ -1,4 +1,6 @@
 from colorama import init, Fore, Back, Style
+from BaseDePalavras import *
+from funcoes import *
 init()
 
 def filtra(palavras,n):
@@ -28,5 +30,3 @@ print('Já tenho uma palavra! Tente adivinhá-la!')
 print('Você tem 6 tentaviva(s)')
 n_letras = int(input('Com quantas letras quer jogar?'))
 palpite = [input('Qual seu palpite?')]
-
-print(filtra(palpite,n_letras))
