@@ -3,14 +3,6 @@ from BaseDePalavras import *
 from funcoes import *
 init()
 
-def filtra(palavras,n):
-    filtro = []
-    for palavra in palavras:
-        if len(palavra) == n:
-            if palavra.lower() not in filtro:
-                filtro.append(palavra.lower())
-    return filtro
-
 print(' =========================== ')
 print('|                           |')
 print('| Bem-vindo ao Insper Termo |')
@@ -28,5 +20,19 @@ print('  - As palavras podem possuir letras repetidas.')
 print('Sorteando uma palavra...')
 print('Já tenho uma palavra! Tente adivinhá-la!')
 print('Você tem 6 tentaviva(s)')
+
 n_letras = int(input('Com quantas letras quer jogar?'))
-palpite = [input('Qual seu palpite?')]
+palavras = filtra(PALAVRAS,n_letras)
+dic = inicializa(palavras)
+print(dic)
+
+palpite = input('Qual seu palpite?')
+tentativas = 1
+while tentativas < 6:
+    if palpite == dic['sorteada']:
+        print(f'*** Parabéns! Você acertou após {tentativas} tentativa(s)!')
+        break
+    
+    print(f'Você tem {6 - tentativas} tentaviva(s)')
+    palpite = input('Qual seu palpite?')
+    tentativas += 1
