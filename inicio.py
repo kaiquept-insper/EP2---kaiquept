@@ -24,15 +24,40 @@ print('Você tem 6 tentaviva(s)')
 n_letras = int(input('Com quantas letras quer jogar?'))
 palavras = filtra(PALAVRAS,n_letras)
 dic = inicializa(palavras)
-print(dic)
+print(dic) #-----------------------------------------------------------------apenas para teste, apagar dps
 
 palpite = input('Qual seu palpite?')
 tentativas = 1
+
 while tentativas < 6:
+    idc = 0 
+    palavra = ''
     if palpite == dic['sorteada']:
+        for i in palpite:
+            palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '       
+            idc += 1
+        print(palavra)
         print(f'*** Parabéns! Você acertou após {tentativas} tentativa(s)!')
         break
+
+    print(palavra)
+    indicador = indica_posicao(dic['sorteada'], palpite)
     
+    
+    for i in indicador:
+        if i == 0:
+            palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '
+
+        elif i == 1:
+            palavra += f' | {Fore.YELLOW }{palpite[idc]}{Style.RESET_ALL} | '
+
+        elif i == 2:
+            palavra += f' | {Fore.BLACK }{palpite[idc]}{Style.RESET_ALL} | '
+        
+        idc += 1
+
+    print(palavra)
     print(f'Você tem {6 - tentativas} tentaviva(s)')
     palpite = input('Qual seu palpite?')
     tentativas += 1
+
