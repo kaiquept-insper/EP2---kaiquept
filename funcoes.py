@@ -10,11 +10,16 @@ def filtra(palavras,n):
     return filtro
 
 def inicializa(palavras):
-    dic = {'n','sorteada','especuladas','tentativas'}
-    dic['n'] = len(palavras[0])
-    dic['tentativas'] = len(palavras[0])+1
-    dic['especuladas'] = []
-    dic['sorteada'] = random.choice(palavras)
+    n = len(palavras[0])
+    tentativas = n + 1
+    especuladas = []
+    sorteada = random.choice(palavras)
+    dic = {
+        'n': n,
+        'tentativas': tentativas,
+        'especuladas': especuladas,
+        'sorteada': sorteada
+    }  
     return dic
 
 def indica_posicao(sorteada, especulada):
@@ -32,4 +37,3 @@ def indica_posicao(sorteada, especulada):
                 retorno.append(2)
             i += 1
     return retorno
-
