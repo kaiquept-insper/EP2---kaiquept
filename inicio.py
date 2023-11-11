@@ -37,10 +37,10 @@ palpite = input('Qual seu palpite? ')
 tentativas = 1
 
 palavra = ''
+palavra_ant = ''
 while tentativas < 6:
     idc = 0 
-    palavra_ant = ''
-    palavra_ant += palavra
+    palavra_ant += palavra + '\n' + '  ---  ' * len(palpite) + '\n'
     palavra = ''
     
     
@@ -76,14 +76,47 @@ while tentativas < 6:
             palavra += f' | {Fore.BLACK }{palpite[idc]}{Style.RESET_ALL} | '
         
         idc += 1
+    
     if tentativas > 1:
-        print('  ---  ' * len(palpite))
-        
         print(palavra_ant)
+    
     print('  ---  ' * len(palpite))
     print(palavra)
     print('  ---  ' * len(palpite))
     print(f'Você tem {6 - tentativas} tentaviva(s)')
     palpite = input('Qual seu palpite? ')
     tentativas += 1
+palavra = ''
+idc = 0
+if palpite == dic['sorteada']:
+    for i in palpite:
+        palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '       
+        idc += 1
+    print('  ---  ' * len(palpite))
+    print(palavra)
+    print('  ---  ' * len(palpite))
+    print(f'*** Parabéns! Você acertou após {tentativas} tentativa(s)!')
+else:
+    for i in indicador:
+        if i == 0:
+            palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '
+
+        elif i == 1:
+            palavra += f' | {Fore.YELLOW }{palpite[idc]}{Style.RESET_ALL} | '
+
+        elif i == 2:
+            palavra += f' | {Fore.BLACK }{palpite[idc]}{Style.RESET_ALL} | '
+        
+        idc += 1
+
+if palpite != dic['sorteada']:          
+    if tentativas > 1:
+        print(palavra_ant)
+    
+    print('  ---  ' * len(palpite))
+    print(palavra)
+    print('  ---  ' * len(palpite))
+
+
+    print('Você perdeu')
     
