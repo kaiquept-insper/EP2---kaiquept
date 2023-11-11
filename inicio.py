@@ -36,10 +36,13 @@ print(dic) #-----------------------------------------------------------------ape
 palpite = input('Qual seu palpite? ')
 tentativas = 1
 
+palavra = ''
 while tentativas < 6:
     idc = 0 
-    palavra = ''
     palavra_ant = ''
+    palavra_ant += palavra
+    palavra = ''
+    
     
 
     if palpite == dic['sorteada']:
@@ -73,7 +76,6 @@ while tentativas < 6:
             palavra += f' | {Fore.BLACK }{palpite[idc]}{Style.RESET_ALL} | '
         
         idc += 1
-    palavra_ant += palavra
     if tentativas > 1:
         print('  ---  ' * len(palpite))
         
