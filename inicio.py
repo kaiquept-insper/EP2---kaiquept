@@ -22,6 +22,9 @@ print('  - Os acentos são ignorados;')
 print('  - As palavras podem possuir letras repetidas.')
 print(' ')
 n_letras = int(input('Com quantas letras quer jogar? '))
+while 1 > n_letras or 23 < n_letras:
+    print('Não há palavras com esse numero de letras no sistema...')
+    n_letras = int(input('Digite um numero entre 1 e 23: '))
 print('Sorteando uma palavra...')
 time.sleep(2)
 print('Já tenho uma palavra! Tente adivinhá-la!')
@@ -43,7 +46,7 @@ while tentativas < 6:
     palavra_ant += palavra + '\n' + '  ---  ' * len(palpite) + '\n'
     palavra = ''
     
-    if palpite not in PALAVRAS:
+    while palpite not in PALAVRAS:
         print('Palavra desconhecida')
         palpite = input('Qual seu palpite? ')
 
