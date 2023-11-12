@@ -34,7 +34,7 @@ print(' ')
 
 palavras = filtra(PALAVRAS,n_letras)
 dic = inicializa(palavras)
-print(dic) #-----------------------------------------------------------------apenas para teste, apagar dps
+#print(dic)
 
 palpite = input('Qual seu palpite? ')
 tentativas = 1
@@ -57,15 +57,22 @@ while tentativas < 6:
         print('  ---  ' * len(palpite))
         print(palavra)
         print('  ---  ' * len(palpite))
-        print(f'*** Parabéns! Você acertou após {tentativas} tentativa(s)!')
+        print('  ---------------------------------------------  ')
+        print(f' | Parabéns! Você acertou após {tentativas} tentativa(s)! | ')
+        print('  ---------------------------------------------  ')
         break
     elif palpite == 'desisto':
         desistencia = input('Tem certeza? [S/N] ')
         if desistencia == 'S':
-            print('Até a proxima!')
+            print('  ----------------  ')
+            print(' | Até a proxima! | ')
+            print('  ----------------  ')
             break
+
         elif desistencia == 'N':
-            print('Boa! Nunca desista!')
+            print('  ---------------------  ')
+            print(' | Boa! Nunca desista! | ')
+            print('  ---------------------  ')
             palpite = input('Qual seu palpite? ')
 
     print(palavra)
@@ -101,7 +108,9 @@ if tentativas == 6:
         print('  ---  ' * len(palpite))
         print(palavra)
         print('  ---  ' * len(palpite))
-        print(f'*** Parabéns! Você acertou após {tentativas} tentativa(s)!')
+        print('  ---------------------------------------------  ')
+        print(f' | Parabéns! Você acertou após {tentativas} tentativa(s)! | ')
+        print('  ---------------------------------------------  ')
 else:
     for i in indicador:
         if i == 0:
@@ -123,5 +132,6 @@ if palpite != dic['sorteada']:
     print(palavra)
     print('  ---  ' * len(palpite))
 
-
-    print('Você perdeu')
+    print('  -------------  ')
+    print(' | Você perdeu | ')
+    print('  -------------  ')
