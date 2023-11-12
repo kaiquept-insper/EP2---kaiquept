@@ -36,7 +36,7 @@ while jog_nov == 'S':
 
     palavras = filtra(PALAVRAS,n_letras)
     dic = inicializa(palavras)
-    #print(dic)
+    print(dic)
 
     palpite = input('Qual seu palpite? ')
     tentativas = 1
@@ -100,6 +100,7 @@ while jog_nov == 'S':
         print(f'Você tem {6 - tentativas} tentaviva(s)')
         palpite = input('Qual seu palpite? ')
         tentativas += 1
+    palavra_ant += palavra + '\n' + '  ---  ' * len(palpite) + '\n'
     palavra = ''
     idc = 0
     if tentativas == 6:
@@ -113,26 +114,26 @@ while jog_nov == 'S':
             print('  ---------------------------------------------  ')
             print(f' | {Fore.YELLOW }Parabéns! Você acertou após {tentativas} tentativa(s)!{Style.RESET_ALL} | ')
             print('  ---------------------------------------------  ')
-    else:
-        for i in indicador:
-            if i == 0:
-                palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '
+        else:
+            for i in indicador:
+                if i == 0:
+                    palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '
 
-            elif i == 1:
-                palavra += f' | {Fore.YELLOW }{palpite[idc]}{Style.RESET_ALL} | '
+                elif i == 1:
+                    palavra += f' | {Fore.YELLOW }{palpite[idc]}{Style.RESET_ALL} | '
 
-            elif i == 2:
-                palavra += f' | {Fore.BLACK }{palpite[idc]}{Style.RESET_ALL} | '
+                elif i == 2:
+                    palavra += f' | {Fore.BLACK }{palpite[idc]}{Style.RESET_ALL} | '
         
-            idc += 1
-
+                idc += 1
+    palavra_ant += palavra + '\n' + '  ---  ' * len(palpite) + '\n'
     if palpite != dic['sorteada']:          
         if tentativas > 1:
             print(palavra_ant)
     
-        print('  ---  ' * len(palpite))
-        print(palavra)
-        print('  ---  ' * len(palpite))
+        # print('  ---  ' * len(palpite))
+        # print(palavra)
+        # print('  ---  ' * len(palpite))
 
         sorteada = dic['sorteada']
         print(f'A palavra era {Fore.YELLOW }{sorteada}{Style.RESET_ALL}')
