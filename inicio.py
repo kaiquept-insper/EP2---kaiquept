@@ -36,13 +36,13 @@ while jog_nov == 'S':
 
     palavras = filtra(PALAVRAS,n_letras)
     dic = inicializa(palavras)
-    print(dic)
 
     palpite = input('Qual seu palpite? ')
     tentativas = 1
 
     palavra = ''
     palavra_ant = ''
+    lista_palpites = []
     while tentativas < 6:
         idc = 0 
         palavra_ant += palavra + '\n' + '  ---  ' * len(palpite) + '\n'
@@ -51,7 +51,12 @@ while jog_nov == 'S':
         while palpite not in PALAVRAS:
             print('Palavra desconhecida')
             palpite = input('Qual seu palpite? ')
-
+        
+        while palpite in lista_palpites:
+            print('Palavra repetida')
+            palpite = input('Qual seu palpite? ')
+        lista_palpites.append(palpite)
+            
         if palpite == dic['sorteada']:
             for i in palpite:
                 palavra += f' | {Fore.BLUE }{palpite[idc]}{Style.RESET_ALL} | '       
